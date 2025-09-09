@@ -7,6 +7,7 @@ import Animes from './Components/Animes'
 import Test from './Components/Test'
 import { useState } from 'react'
 import Light from './Components/Light'
+import { Analytics } from "@vercel/analytics/next"
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
         <Route path='/light' element={<Light/>}></Route>
       </Routes>
     </BrowserRouter>
+    <Analytics/>
     </>
   )
 }

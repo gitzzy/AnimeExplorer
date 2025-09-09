@@ -9,7 +9,7 @@ export default function Navbar() {
 
       <Link to='/' className='text-[white] text-xl font-bold'>Home</Link>
       <Link to='/watchlist' className='text-[white] text-xl font-bold'>WatchList</Link>
-      <Link to='/test' className='text-[white] text-xl font-bold'>Test</Link>
+      {/* <Link to='/test' className='text-[white] text-xl font-bold'>Test</Link> */}
       <Link to='/light' className='text-[white] text-xl font-bold'>Click here light</Link>
     </div>
   )
