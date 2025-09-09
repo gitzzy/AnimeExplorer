@@ -6,6 +6,7 @@ import Watchlist from './Components/Watchlist'
 import Animes from './Components/Animes'
 import Test from './Components/Test'
 import { useState } from 'react'
+import Light from './Components/Light'
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
         <Route path='/' element={<><Banner/> <Animes handleWatch={handleWatch}/> </>}/>
         <Route path='/watchlist' element={<Watchlist/>}/>
         <Route path='/test' element={<Test/>} />
+        <Route path='/light' element={<Light/>}></Route>
       </Routes>
     </BrowserRouter>
     </>
