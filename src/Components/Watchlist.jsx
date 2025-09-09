@@ -48,7 +48,7 @@ export default function Watchlist({wishList,handleRemoveWish}) {
                             </td>
                             <td>{obj.rating}</td>
                             <td>
-                                <button onClick={() => handleRemoveWish(obj)}><i class="fa-solid fa-trash"></i></button>
+                                <button onClick={() => handleRemoveWish(obj)}>🗑️</button>
                             </td>
             
                         </tr>

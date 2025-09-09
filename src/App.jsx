@@ -43,7 +43,6 @@ useEffect(() => {
         <Routes>
           <Route path='/' element={<><Banner/> <Animes handleWatch={handleWatch} handleRemoveWish={handleRemoveWish} watchlist={watchlist}/> </>}/>
           <Route path='/watchlist' element={<Watchlist wishList={watchlist} handleRemoveWish={handleRemoveWish}/>}/>
-          <Route path='/light' element={<Light/>}/>
         </Routes>
       </BrowserRouter>
     </>
