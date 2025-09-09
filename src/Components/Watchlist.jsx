@@ -1,9 +1,43 @@
 import React, { useState } from 'react'
 
-export default function Watchlist({wishList,handleRemoveWish}) {
+export default function Watchlist({wishList,handleRemoveWish , setWishList}) {
 
     const [seacrh,setSrch] = useState('')
+    const [sort,setSort] = useState(true)
+    const [mbr ,setMbr ] = useState(true)
 
+    let sortInc = () => {
+       let inc =  wishList.sort((animeA , animeB) => {
+            return animeA.score - animeB.score
+        })
+        setWishList([...inc])
+        setSort(false)
+    }
+
+    let memInc = () => {
+        let mi = wishList.sort((animeA,animeB) => {
+            return animeA.members - animeB.members
+        })
+        setWishList([...mi])
+        setMbr(false)
+    }
+
+    let memDec = () => {
+        let md = wishList.sort((animeA,animeB) => {
+            return animeB.members - animeA.members
+        })
+        setWishList([...md])
+        setMbr(true)
+    }
+
+
+    let sortDec = () => {
+      let dec =  wishList.sort((animeA , animeB) => {
+            return animeB.score - animeA.score
+        })
+        setWishList([...dec])
+        setSort(true)
+    }
 
   return (
         <>
@@ -28,14 +62,27 @@ export default function Watchlist({wishList,handleRemoveWish}) {
                     <thead className=''>
                         <tr className=''>
                             <th>Name</th>
-                            <th>Rating</th>
-                            <th>Fans</th>
+                            <th className='flex gap-2 p-2 m-2 justify-center'>
+                                
+                                <div >Rating</div>
+                                {sort? <div onClick={sortInc}>↑</div> : <div onClick={sortDec}>↓</div>}
+                        
+                            </th>
+                            
+                            <th><div className='flex justify-center gap-2'>
+                                
+                                <div >Fans</div>
+                                {mbr? <div onClick={memInc}>↑</div> : <div onClick={memDec}>↓</div>}
+                        
+                            </div></th>
                             <th>Type</th>
                         </tr>
                     </thead>
                     <tbody>
                         
-                        {wishList.map((obj) => {
+                        {wishList.filter((srchObj) => {
+                            return srchObj.title.toLowerCase().includes(seacrh.toLowerCase())
+                        }).map((obj) => {
                             return  <tr className='border-b-2'>
                             <td className='flex items-center py-4'>
                                 <img className='w-[4rem] h-[5rem]'

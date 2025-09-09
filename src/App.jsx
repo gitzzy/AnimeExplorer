@@ -42,7 +42,7 @@ useEffect(() => {
         <Navbar/>
         <Routes>
           <Route path='/' element={<><Banner/> <Animes handleWatch={handleWatch} handleRemoveWish={handleRemoveWish} watchlist={watchlist}/> </>}/>
-          <Route path='/watchlist' element={<Watchlist wishList={watchlist} handleRemoveWish={handleRemoveWish}/>}/>
+          <Route path='/watchlist' element={<Watchlist wishList={watchlist} handleRemoveWish={handleRemoveWish} setWishList={setWatch}/>}/>
         </Routes>
       </BrowserRouter>
     </>
