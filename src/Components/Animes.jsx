@@ -3,7 +3,7 @@ import AnimeCard from "./AnimeCard";
 import axios from "axios";
 import Pagination from "./Pagination";
 
-export default function Animes({handleWatch}) {
+export default function Animes({handleWatch, handleRemoveWish,watchlist}) {
     const [anime, setAnime] = useState([]);
     const [page,setPage] = useState(1);
 
@@ -41,6 +41,9 @@ export default function Animes({handleWatch}) {
               fans={obj.members}
               handleWatch={handleWatch}
               animeObj={obj}
+              handleRemoveWish={handleRemoveWish}
+              watchlist = {watchlist}
+
             />
           );
         })}

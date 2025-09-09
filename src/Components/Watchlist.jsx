@@ -1,12 +1,9 @@
 import React, { useState } from 'react'
 
-export default function Watchlist() {
+export default function Watchlist({wishList,handleRemoveWish}) {
 
     const [seacrh,setSrch] = useState('')
 
-    const deleteList = () => {
-
-    }
 
   return (
         <>
@@ -37,22 +34,27 @@ export default function Watchlist() {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr className='border-b-2'>
+                        
+                        {wishList.map((obj) => {
+                            return  <tr className='border-b-2'>
                             <td className='flex items-center py-4'>
                                 <img className='w-[4rem] h-[5rem]'
-                                src='https://imgc.allpostersimages.com/img/posters/one-piece-monkey-d-luffy-wanted-poster_u-l-faf9200.jpg?artHeight=550&artPerspective=y&artWidth=550&background=ffffff'></img>
-                                <div className='mx-5'>One Piece</div>
+                                src={obj.images.jpg.large_image_url}></img>
+                                <div className='mx-5'>{obj.title}</div>
                             </td>
-                            <td>8.5</td>
+                            <td>{obj.score}</td>
                             <td>
-                                90000
+                                {obj.members}
                             </td>
-                            <td>PG9</td>
+                            <td>{obj.rating}</td>
                             <td>
-                                <button onClick={deleteList}><i class="fa-solid fa-trash"></i></button>
+                                <button onClick={() => handleRemoveWish(obj)}><i class="fa-solid fa-trash"></i></button>
                             </td>
             
                         </tr>
+                        })}
+
+                       
 
                     </tbody>
                 </table>

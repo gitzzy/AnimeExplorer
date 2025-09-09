@@ -1,17 +1,30 @@
 import React from 'react'
 
-export default function AnimeCard({ poster, title, rating, rank, fans ,handleWatch,animeObj}) {
+export default function AnimeCard({ poster, title, rating, rank, fans ,handleWatch,animeObj,handleRemoveWish,watchlist}) {
+  
+  function doesContain(animeObj){
+    for(let i=0; i<watchlist.length; i++){
+      if(watchlist[i].mal_id == animeObj.mal_id){
+        return true
+      }  
+    }
+    return false;
+  }
+  
   return (
     <div
       style={{ backgroundImage: `url(${poster})` }}
-      className="h-[50vh] w-[220px] bg-center bg-cover rounded-xl hover:scale-110 duration-500 hover:cursor-pointer text-center relative"
-    >
-         <div
-        className="absolute top-2 right-2 bg-gray-900/60 text-xl px-3 py-1 rounded-lg"
-        onClick={() => handleWatch(animeObj)}
-      >
-        ❤️
-      </div>
+      className="h-[50vh] w-[220px] bg-center bg-cover rounded-xl hover:scale-110 duration-500 hover:cursor-pointer text-center relative">
+        
+      {doesContain(animeObj) ? <div className="absolute top-2 right-2 bg-gray-900/60 text-xl px-3 py-1 rounded-lg"
+        onClick={() => handleRemoveWish(animeObj)}>
+      ❌
+      </div> : <div className="absolute top-2 right-2 bg-gray-900/60 text-xl px-3 py-1 rounded-lg"
+        onClick={() => handleWatch(animeObj)}>
+      ❤️
+      </div>}  
+
+      
       <div className="absolute bottom-0 w-full bg-gray-500/70 text-white p-2 rounded-b-xl text-sm">
         <h2 className="font-bold text-base">{title}</h2>
         <div className='text-left'>
