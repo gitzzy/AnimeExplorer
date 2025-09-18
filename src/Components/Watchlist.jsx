@@ -57,8 +57,8 @@ export default function Watchlist({wishList,handleRemoveWish , setWishList}) {
                 <button className='w-[5rem] border rounded-xl bg-green-300'>Search</button>
             </div>
 
-            <div className='border border-gray-400 p-4 m-4 rounded-lg mt-10'>
-                <table className='w-full text-center border'>
+            <div className='border border-gray-400 p-4 m-6 rounded-lg mt-10'>
+                <table className='w-full text-center p-4'>
                     <thead className=''>
                         <tr className=''>
                             <th>Name</th>

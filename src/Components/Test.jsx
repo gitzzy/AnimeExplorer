@@ -12,7 +12,7 @@ export default function Test() {
 
     useEffect(()=>{
         console.log('use effect running');
-        document.title = `(${count}) new messages`
+        document.title = `Testing phase`
     },[count])
 
     useEffect(() => {
